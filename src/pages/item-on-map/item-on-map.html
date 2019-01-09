@@ -1,0 +1,74 @@
+
+<ion-header>
+  <ion-navbar>
+    <button menuToggle *ngIf="!selectedItem">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{selectedItem.Name}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="goHome()">
+        <ion-icon name="home"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<!--
+<agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
+-->
+<ion-content>
+
+  <!--<ion-refresher (ionRefresh)="doRefresh($event)">-->
+    <!--<ion-refresher-content></ion-refresher-content>-->
+  <!--</ion-refresher>-->
+
+  <div id="map"></div>
+</ion-content>
+
+<!--<content-drawer [options]="drawerOptions">-->
+    <!--<ion-list margin-bottom="0px">-->
+      <!--<button ion-item *ngFor="let place of places" (click)="itemTapped($event, place)">-->
+        <!--<ion-thumbnail item-start>-->
+          <!--&lt;!&ndash;<img src="{{item.Image}}" image-cache>&ndash;&gt;-->
+          <!--<img-loader class="center-cropped" src="{{ place.photos[0].getUrl({'maxHeight': 100}) }}" useImg></img-loader>-->
+        <!--</ion-thumbnail>-->
+        <!--<h2>{{place.name}}</h2>-->
+        <!--&lt;!&ndash;<button ion-button clear item-end>View Detail</button>&ndash;&gt;-->
+      <!--</button>-->
+    <!--</ion-list>-->
+<!--</content-drawer>-->
+
+<ion-pullup (onExpand)="footerExpanded()" (onCollapse)="footerCollapsed()" [(state)]="footerState">
+  <ion-toolbar color="primary" (tap)="toggleFooter()">
+    <ion-title>Restaurant list</ion-title>
+  </ion-toolbar>
+  <ion-content>
+    <ion-list margin-bottom="0px">
+      <button ion-item *ngFor="let place of places" (click)="itemTapped(place.place_id)">
+        <ion-thumbnail item-start>
+          <img class="center-cropped" src="{{ (place.photos == 'undefined' || place.photos == null) ? './assets/img/restaurant.png' : place.photos[0].getUrl({'maxHeight': 100}) }}">
+          <!--<img-loader class="center-cropped" src="{{ (place.photos > 0) ? place.photos[0].getUrl({'maxHeight': 100}) : './assets/img/food.png' }}" useImg></img-loader>-->
+        </ion-thumbnail>
+        <h2>{{place.name}}</h2>
+        <p>{{place.rating}}&nbsp;
+          <rating
+            [(ngModel)]="place.rating"
+            readOnly="true"
+            max="5"
+            emptyStarIconName="star-outline"
+            halfStarIconName="star-half"
+            starIconName="star"
+            nullable="false">
+          </rating>
+        </p>
+        <p>
+          {{place.vicinity}}
+        </p>
+        <!--<button ion-button clear item-end>View Detail</button>-->
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-pullup>
+

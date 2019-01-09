@@ -1,0 +1,11 @@
+page-hello-ionic {
+  ::-webkit-scrollbar,
+  *::-webkit-scrollbar {
+    display: none;
+  }
+
+  #chartdiv {
+    width: 100%;
+    height: 100%;
+  }
+}

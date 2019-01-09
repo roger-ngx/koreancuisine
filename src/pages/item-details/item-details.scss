@@ -1,0 +1,11 @@
+page-item-details {
+  ::-webkit-scrollbar,
+  *::-webkit-scrollbar {
+    display: none;
+  }
+
+  ion-title{
+    width: 100%;
+    align-content: center;
+  }
+}

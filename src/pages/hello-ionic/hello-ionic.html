@@ -1,0 +1,21 @@
+
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Find Local Foods</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <div id="chartdiv"></div>
+
+  <ion-fab right bottom>
+    <button (click)="itemTapped()" ion-fab color="primary">
+      <ion-icon name="search"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

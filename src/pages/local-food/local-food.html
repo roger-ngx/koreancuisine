@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{prefectures[0]}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngFor="let localFood of localFoods">
+    <ion-item>
+      <h2>{{localFood.Name}}</h2>
+    </ion-item>
+
+    <img-loader src="{{localFood.Image}}" useImg></img-loader>
+
+    <ion-card-content style="padding-bottom: 0px;">
+      <p>{{localFood.Content}}</p>
+    </ion-card-content>
+
+    <button ion-button clear icon-start item-right (click)="itemTapped($event, localFood)">
+      <ion-icon name="pin"></ion-icon>
+      Find
+    </button>
+
+  </ion-card>
+</ion-content>

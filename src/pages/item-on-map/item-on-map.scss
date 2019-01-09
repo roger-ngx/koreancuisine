@@ -1,0 +1,36 @@
+item-on-map {
+  #map{
+    height: calc(100% - 44px);
+    width: 100%;
+  }
+
+  content-drawer {
+    background-color: #34495e !important;
+  }
+
+  content-drawer .content {
+    padding: 20px;
+  }
+
+  ::-webkit-scrollbar,
+  *::-webkit-scrollbar {
+    display: none;
+  }
+
+  ul {
+    padding: 0px;
+    margin: 0px;
+    width: auto;
+    white-space:nowrap;
+    display:inline-block;
+    &.rating li {
+      padding: 0px 0px !important;
+      background: none;
+      color: #ffb400;
+
+      ion-icon {
+        font-size: 15px;
+      }
+    }
+  }
+}

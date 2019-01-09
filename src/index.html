@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>Ionic App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="Content-Security-Policy" content="default-src *; img-src * 'self' data: https:; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" />
+  <!--<meta http-equiv="Content-Security-Policy" content="script-src 'self' https://maps.googleapis.com/ https://maps.gstatic.com/ https://mts0.googleapis.com/ 'unsafe-inline' 'unsafe-eval'">-->
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <link rel="icon" type="image/x-icon" href="assets/icon/favicon.ico">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4e8ef7">
+
+  <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsbAb6Wsoq9z9TqDHsmXP18NfyA-pbrJU&libraries=places"></script>-->
+  <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsbAb6Wsoq9z9TqDHsmXP18NfyA-pbrJU&callback=initialMap" async defer></script>-->
+
+  <!-- cordova.js required for cordova apps -->
+  <script src="cordova.js"></script>
+
+  <script src="./assets/js/ammap.js"></script>
+  <script src="./assets/js/japanLow.js"></script>
+  <script src="./assets/js/none.js"></script>
+  <!-- un-comment this code to enable service worker
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('service worker installed'))
+        .catch(err => console.error('Error', err));
+    }
+  </script>-->
+
+  <!--<link href="./styles.css" rel="stylesheet">-->
+  <link href="build/main.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Ionic's root component and where the app will load -->
+  <ion-app [areas]=></ion-app>
+<!--
+  <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCCkOOANLPZnpwY3YelpvWijrGJydHF6zM",
+      authDomain: "japanesecuisine-1499583909422.firebaseapp.com",
+      databaseURL: "https://japanesecuisine-1499583909422.firebaseio.com",
+      projectId: "japanesecuisine-1499583909422",
+      storageBucket: "",
+      messagingSenderId: "665270945143"
+    };
+    firebase.initializeApp(config);
+
+  </script>
+-->
+  <!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsbAb6Wsoq9z9TqDHsmXP18NfyA-pbrJU&libraries=places"></script>-->
+  <!-- The polyfills js is generated during the build process -->
+  <script src="build/polyfills.js"></script>
+
+  <!-- The bundle js is generated during the build process -->
+  <script src="build/main.js"></script>
+</body>
+</html>

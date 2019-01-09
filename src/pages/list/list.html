@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Food List</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<!--https://github.com/ionic-team/ionic/issues/1322-->
+<ion-content overflow-scroll="true" class="card-background-page">
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+
+  <ion-card *ngFor="let item of foodItemsInPage" (click)="itemTapped($event, item)">
+      <img-loader src="{{item.Image}}" useImg></img-loader>
+      <div class="card-title">{{item.Name}}</div>
+  </ion-card>
+
+  <div align="center">
+    <button ion-button icon-left [disabled]="currentPage==1"  *ngIf="!isSearching" (click)="onPageChanged(1)">1</button>
+    <button ion-button icon-right [disabled]="currentPage==2" *ngIf="!isSearching" (click)="onPageChanged(2)">2</button>
+    <button ion-button icon-left [disabled]="currentPage==3"  *ngIf="!isSearching" (click)="onPageChanged(3)">3</button>
+    <button ion-button icon-right [disabled]="currentPage==4" *ngIf="!isSearching" (click)="onPageChanged(4)">4</button>
+  </div>
+</ion-content>

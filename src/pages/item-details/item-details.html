@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <button menuToggle *ngIf="!selectedItem">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{selectedItem.Name}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h5 text-left *ngIf="selectedItem">
+    <div style="white-space:pre-wrap;">{{selectedItem.Content}}</div>
+  </h5>
+  <div align="center">
+    <!--<img src="{{selectedItem.Image}}" image-cache>-->
+    <img-loader src="{{selectedItem.Image}}" useImg></img-loader>
+  </div>
+
+  <!--<button ion-item (click)="itemTapped($event, selectedItem)" color="primary" style="">
+    <span class="button-inner">
+          Find on Map
+    </span>
+  </button>-->
+  <ion-fab right bottom>
+    <button (click)="itemTapped($event, selectedItem)" ion-fab color="primary">
+      <ion-icon name="pin"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

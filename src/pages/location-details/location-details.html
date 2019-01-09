@@ -1,0 +1,81 @@
+
+<ion-header>
+  <ion-navbar>
+    <button menuToggle *ngIf="!place">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{place.name}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<!--
+https://angular.io/guide/architecture
+https://developers.google.com/maps/documentation/javascript/reference#PlaceResult
+https://developers.google.com/places/web-service/details
+-->
+
+
+<ion-content>
+
+  <ion-slides pager style="max-height:250px">
+    <ion-slide *ngFor="let image of place.photos">
+      <img style='height: 100%; width: 100%; object-fit: contain' src="{{ image.getUrl({'maxHeight': 250}) }}">
+    </ion-slide>
+  </ion-slides>
+
+  <p padding-left padding-right>{{place.rating}}&nbsp;
+    <rating
+        [(ngModel)]="place.rating"
+        readOnly="true"
+        max="5"
+        emptyStarIconName="star-outline"
+        halfStarIconName="star-half"
+        starIconName="star"
+        nullable="false">
+    </rating>
+  </p>
+  <p padding-left padding-right>
+    <ion-icon name="pin" style="color: blue"></ion-icon>
+    &nbsp;
+    {{place.formatted_address}}
+  </p>
+  <p padding-left padding-right>
+    <ion-icon name="call" style="color: blue"></ion-icon>
+    &nbsp;
+    {{place.formatted_phone_number}}
+  </p>
+
+  <!-- embed map
+  <iframe padding-left padding-right defer [src]="sanitizer.bypassSecurityTrustResourceUrl(embed_url)" frameborder="0"></iframe>
+  -->
+  <!--<img padding-left padding-right defer [src]="sanitizer.bypassSecurityTrustResourceUrl(static_url)" frameborder="0">-->
+  <div align="center" padding-left padding-right>
+    <a [href]="embed_url"><img style='height: 100%; width: 100%; object-fit: contain' [src]="static_url" frameborder="0"/></a>
+  </div>
+  <!-- static map key AIzaSyC4DjqnB33W1QE4gOo9uxKO6scZPH6z2kY -->
+
+  <ion-list>
+    <ion-item *ngFor="let placeReview of place.reviews" text-wrap>
+      <ion-avatar item-start>
+        <img [src]="placeReview.profile_photo_url">
+      </ion-avatar>
+
+      <h2>{{placeReview.author_name}}</h2>
+      <p>
+        <rating
+          [(ngModel)]="placeReview.rating"
+          readOnly="true"
+          max="5"
+          emptyStarIconName="star-outline"
+          halfStarIconName="star-half"
+          starIconName="star"
+          nullable="false">
+        </rating> - {{placeReview.relative_time_description}}
+
+      </p>
+      <p>{{placeReview.text}}</p>
+
+    </ion-item>
+  </ion-list>
+</ion-content>
+
